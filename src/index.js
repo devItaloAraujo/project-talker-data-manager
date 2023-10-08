@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+var randtoken = require('rand-token');
 
 const app = express();
 app.use(express.json());
@@ -45,12 +46,18 @@ app.get('/talker/:id', (req, res) => {
           message: 'Pessoa palestrante não encontrada',
         });
       }
-      
-      // output the parsed data
     } else {
       res.status(HTTP_OK_STATUS).json([]);
     }
   });
+});
+
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  if (email && password) {
+    const token = randtoken.generate(16);
+    return res.status(HTTP_OK_STATUS).json({ token });
+  }
 });
 
 app.listen(PORT, () => {
