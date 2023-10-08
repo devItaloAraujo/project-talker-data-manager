@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-var randtoken = require('rand-token');
+const fieldValidator = require('./middleware/fieldValidator');
 
 const app = express();
 app.use(express.json());
@@ -52,13 +52,7 @@ app.get('/talker/:id', (req, res) => {
   });
 });
 
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  if (email && password) {
-    const token = randtoken.generate(16);
-    return res.status(HTTP_OK_STATUS).json({ token });
-  }
-});
+app.post('/login', fieldValidator);
 
 app.listen(PORT, () => {
   console.log('Online');
