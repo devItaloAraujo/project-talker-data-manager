@@ -1,6 +1,14 @@
 const express = require('express');
 const fs = require('fs');
-const fieldValidator = require('./middleware/fieldValidator');
+const { 
+  fieldValidator, 
+  tokenValidator, 
+  nameValidator,
+  ageValidator,
+  talkValidator,
+  rateValidator,
+  addTalker,
+} = require('./middleware');
 
 const app = express();
 app.use(express.json());
@@ -53,6 +61,13 @@ app.get('/talker/:id', (req, res) => {
 });
 
 app.post('/login', fieldValidator);
+
+app.post('/talker', tokenValidator, 
+  nameValidator, 
+  ageValidator, 
+  talkValidator, 
+  rateValidator,
+  addTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
