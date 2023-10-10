@@ -8,6 +8,7 @@ const {
   talkValidator,
   rateValidator,
   addTalker,
+  editTalker,
 } = require('./middleware');
 
 const app = express();
@@ -68,6 +69,13 @@ app.post('/talker', tokenValidator,
   talkValidator, 
   rateValidator,
   addTalker);
+
+app.put('/talker/:id', tokenValidator,
+  nameValidator,
+  ageValidator,
+  talkValidator,
+  rateValidator,
+  editTalker);
 
 app.listen(PORT, () => {
   console.log('Online');

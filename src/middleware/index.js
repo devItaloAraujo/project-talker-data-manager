@@ -3,6 +3,7 @@ const tokenValidator = require('./tokenValidator');
 const { nameValidator, ageValidator } = require('./nameValidator'); 
 const { talkValidator, rateValidator } = require('./talkValidator');
 const addTalker = require('./addTalker');
+const editTalker = require('./editTalker');
 
 module.exports = {
   fieldValidator,
@@ -12,4 +13,5 @@ module.exports = {
   talkValidator,
   rateValidator,
   addTalker,
+  editTalker,
 };
