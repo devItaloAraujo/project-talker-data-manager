@@ -9,6 +9,7 @@ const {
   rateValidator,
   addTalker,
   editTalker,
+  deleteTalker,
 } = require('./middleware');
 
 const app = express();
@@ -76,6 +77,9 @@ app.put('/talker/:id', tokenValidator,
   talkValidator,
   rateValidator,
   editTalker);
+
+app.delete('/talker/:id', tokenValidator,
+  deleteTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
