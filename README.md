@@ -20,3 +20,4 @@ Os endpoints são /login, /talker e /talker/:id.
 - Execute o comando: **npm start**
 - Pronto, o terminal irá mostrar que está conectado a porta 3001.
 
+![Captura de tela de 2024-01-04 10-27-06](https://github.com/devItaloAraujo/project-talker-data-manager/assets/45125829/853770e6-f800-40de-bdb3-f9babf9030f7)
