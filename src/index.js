@@ -21,11 +21,6 @@ const PORT = process.env.PORT || '3001';
 
 const path = 'src/talker.json';
 
-// não remova esse endpoint, é para o avaliador funcionar
-app.get('/', (_request, response) => {
-  response.status(HTTP_OK_STATUS).send();
-});
-
 app.get('/talker', (req, res) => {
   fs.readFile(path, 'utf8', (errFile, file) => {
   // check for any errors
@@ -82,5 +77,5 @@ app.delete('/talker/:id', tokenValidator,
   deleteTalker);
 
 app.listen(PORT, () => {
-  console.log('Online');
+  console.log('Online na porta 3001');
 });
